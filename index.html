@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zoka.works — Senior Website Developer & AI Lead Generation Systems Builder</title>
+  <meta name="description" content="I build websites and outbound systems that generate real clients. Senior developer helping businesses turn traffic into leads using AI and high-converting systems." />
+  <meta name="keywords" content="web development, AI lead generation, SaaS websites, cold email, outbound systems, landing pages" />
+  <meta name="author" content="zoka.works" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="zoka.works — Websites & AI Outbound Systems" />
+  <meta property="og:description" content="Senior developer helping businesses turn traffic into leads using AI and high-converting systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zoka.works" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Mouse Glow -->
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- ====== NAVIGATION ====== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="logo">zoka<span>.works</span></a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#results">Results</a>
+        <a href="#contact" class="btn btn-primary nav-cta">Start Your Project</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero section" id="hero">
+    <!-- Aurora gradient blobs -->
+    <div class="hero-aurora">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-visual">
+      <div class="grid-pattern"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Available for new projects
+        </div>
+
+        <h1>I Build Websites &amp; Outbound Systems That <span class="gradient-text">Generate Real Clients</span></h1>
+
+        <p>Senior developer helping businesses turn traffic into leads using AI and high-converting systems.</p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary" id="cta-hero-start">Start Your Project</a>
+          <a href="#services" class="btn btn-secondary" id="cta-hero-how">See How It Works</a>
+        </div>
+      </div>
+
+      <!-- Trust Strip -->
+      <div class="trust-strip">
+        <div class="trust-label">Trusted by teams at</div>
+        <div class="trust-logos">
+          <span class="trust-logo">Stripe</span>
+          <span class="trust-logo">Vercel</span>
+          <span class="trust-logo">Linear</span>
+          <span class="trust-logo">Notion</span>
+          <span class="trust-logo">Figma</span>
+          <span class="trust-logo">Webflow</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ABOUT ====== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">About</span>
+        <h2 class="section-title">Development Meets <span class="gradient-text">AI Strategy</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm a Senior Website Developer specializing in building conversion-focused websites and AI-powered lead generation systems.</p>
+          <p>I combine development, automation, and AI to create systems that don't just look good — they bring consistent business.</p>
+        </div>
+
+        <div class="skills-grid reveal">
+          <div class="glass-card skill-card">
+            <div class="skill-icon">⚡</div>
+            <h4>Frontend</h4>
+            <p>HTML, CSS, JavaScript, React</p>
+          </div>
+          <div class="glass-card skill-card">
+            <div class="skill-icon">⚙️</div>
+            <h4>Backend</h4>
+            <p>Python, APIs, automation</p>
+          </div>
+          <div class="glass-card skill-card">
+            <div class="skill-icon">🤖</div>
+            <h4>AI Tools</h4>
+            <p>AI tools, scraping, email systems</p>
+          </div>
+          <div class="glass-card skill-card">
+            <div class="skill-icon">📈</div>
+            <h4>Focus</h4>
+            <p>Performance, conversion, scalability</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SERVICES ====== -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Services</span>
+        <h2 class="section-title">What I <span class="gradient-text">Build</span></h2>
+        <p class="section-subtitle">End-to-end systems that turn traffic into revenue — from first impression to first client.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="glass-card service-card reveal">
+          <div class="service-number">01</div>
+          <h3>Website Development</h3>
+          <ul>
+            <li>High-converting landing pages</li>
+            <li>SaaS websites &amp; dashboards</li>
+            <li>Fast &amp; responsive builds</li>
+            <li>Custom design systems</li>
+          </ul>
+        </div>
+
+        <div class="glass-card service-card reveal">
+          <div class="service-number">02</div>
+          <h3>AI Lead Generation</h3>
+          <ul>
+            <li>Cold email infrastructure</li>
+            <li>Lead scraping &amp; enrichment</li>
+            <li>Outreach automation</li>
+            <li>Multi-channel campaigns</li>
+          </ul>
+        </div>
+
+        <div class="glass-card service-card reveal">
+          <div class="service-number">03</div>
+          <h3>Optimization</h3>
+          <ul>
+            <li>A/B testing frameworks</li>
+            <li>Funnel improvements</li>
+            <li>Analytics &amp; tracking</li>
+            <li>Conversion rate optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== OFFER ====== -->
+  <section class="section" id="offer">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Offer</span>
+        <h2 class="section-title">The Complete <span class="gradient-text">Growth System</span></h2>
+      </div>
+
+      <div class="offer-card glass-card animated-border reveal">
+        <div class="offer-inner">
+          <div>
+            <h3 class="offer-title">Everything you need to <span class="gradient-text">grow.</span></h3>
+            <p class="offer-desc">A fully integrated system — from a high-converting website to AI-powered lead generation, all built and optimized to drive real business results.</p>
+          </div>
+          <div class="offer-list">
+            <div class="offer-item">
+              <span class="offer-check">✓</span>
+              <span>Website + funnel build</span>
+            </div>
+            <div class="offer-item">
+              <span class="offer-check">✓</span>
+              <span>Lead generation system</span>
+            </div>
+            <div class="offer-item">
+              <span class="offer-check">✓</span>
+              <span>Email automation</span>
+            </div>
+            <div class="offer-item">
+              <span class="offer-check">✓</span>
+              <span>Analytics dashboard</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== RESULTS ====== -->
+  <section class="section" id="results">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Results</span>
+        <h2 class="section-title">Numbers That <span class="gradient-text">Speak</span></h2>
+      </div>
+
+      <div class="results-grid">
+        <div class="glass-card result-card reveal">
+          <div class="result-value gradient-text" data-count="100" data-suffix="%">0%</div>
+          <div class="result-label">Conversion-focused websites</div>
+        </div>
+        <div class="glass-card result-card reveal">
+          <div class="result-value gradient-text" data-count="60" data-prefix="40–" data-suffix="%">0%</div>
+          <div class="result-label">Email open rates achieved</div>
+        </div>
+        <div class="glass-card result-card reveal">
+          <div class="result-value gradient-text" data-symbol="∞">∞</div>
+          <div class="result-label">Consistent inbound leads</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PORTFOLIO ====== -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Recent <span class="gradient-text">Projects</span></h2>
+        <p class="section-subtitle">Real problems. Smart solutions. Measurable results.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Project 1 -->
+        <div class="glass-card portfolio-card reveal" id="portfolio-1">
+          <div class="portfolio-thumb">
+            <img src="img-saas.png" alt="SaaS Platform Redesign" id="portfolio-img-1" />
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">SaaS Website</div>
+            <h3>SaaS Platform Redesign</h3>
+            <p><strong>Problem:</strong> Low trial signups from outdated landing page.<br/>
+            <strong>Solution:</strong> Complete redesign with conversion-optimized layout and faster load times.</p>
+            <div class="portfolio-result">↑ 3.2× increase in trial signups</div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="glass-card portfolio-card reveal" id="portfolio-2">
+          <div class="portfolio-thumb">
+            <img src="img-leadgen.png" alt="AI Lead Gen System" id="portfolio-img-2" />
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Lead Generation</div>
+            <h3>AI-Powered Outbound System</h3>
+            <p><strong>Problem:</strong> Agency struggling with inconsistent lead flow.<br/>
+            <strong>Solution:</strong> Built automated scraping + cold email pipeline with AI personalization.</p>
+            <div class="portfolio-result">↑ 58% email open rate, 12 meetings/week</div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="glass-card portfolio-card reveal" id="portfolio-3">
+          <div class="portfolio-thumb">
+            <img src="img-funnel.png" alt="E-Commerce Funnel" id="portfolio-img-3" />
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Funnel Optimization</div>
+            <h3>E-Commerce Conversion Funnel</h3>
+            <p><strong>Problem:</strong> High traffic but poor checkout completion rate.<br/>
+            <strong>Solution:</strong> Redesigned funnel with A/B testing, trust signals, and streamlined UX.</p>
+            <div class="portfolio-result">↑ 47% increase in completed orders</div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="glass-card portfolio-card reveal" id="portfolio-4">
+          <div class="portfolio-thumb">
+            <img src="img-fintech.png" alt="Startup Landing Page" id="portfolio-img-4" />
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Landing Page</div>
+            <h3>Fintech Startup Launch Page</h3>
+            <p><strong>Problem:</strong> Pre-launch with zero online presence.<br/>
+            <strong>Solution:</strong> Built high-impact landing page with waitlist funnel and email capture.</p>
+            <div class="portfolio-result">↑ 2,400 waitlist signups in 3 weeks</div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="glass-card portfolio-card reveal" id="portfolio-5">
+          <div class="portfolio-thumb">
+            <img src="img-agency.png" alt="B2B Agency Website" id="portfolio-img-5" />
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Agency Website</div>
+            <h3>B2B Marketing Agency Site</h3>
+            <p><strong>Problem:</strong> Outdated website failing to attract enterprise clients.<br/>
+            <strong>Solution:</strong> Premium dark-theme rebuild with case studies, social proof, and CTA strategy.</p>
+            <div class="portfolio-result">↑ 5× more qualified inbound leads</div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="glass-card portfolio-card reveal" id="portfolio-6">
+          <div class="portfolio-thumb">
+            <img src="img-outreach.png" alt="Email Automation System" id="portfolio-img-6" />
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Email Automation</div>
+            <h3>Multi-Channel Outreach Engine</h3>
+            <p><strong>Problem:</strong> Manual outreach limiting growth for consulting firm.<br/>
+            <strong>Solution:</strong> Automated email + LinkedIn sequences with CRM integration.</p>
+            <div class="portfolio-result">↑ 40% reply rate, 8 new clients/month</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== WHY CHOOSE ====== -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Why Choose</span>
+        <h2 class="section-title">Why <span class="gradient-text">zoka.works</span></h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="glass-card why-card reveal">
+          <div class="why-icon">🎯</div>
+          <h4>Senior-Level Execution</h4>
+          <p>No juniors, no hand-offs. Direct work from an experienced developer.</p>
+        </div>
+        <div class="glass-card why-card reveal">
+          <div class="why-icon">⚡</div>
+          <h4>Fast Delivery</h4>
+          <p>Most projects delivered in 7–14 days. No unnecessary delays.</p>
+        </div>
+        <div class="glass-card why-card reveal">
+          <div class="why-icon">🤖</div>
+          <h4>AI + Dev Hybrid</h4>
+          <p>Combining code with AI tools for smarter, faster systems.</p>
+        </div>
+        <div class="glass-card why-card reveal">
+          <div class="why-icon">📈</div>
+          <h4>ROI-Focused</h4>
+          <p>Every decision is driven by results, not aesthetics alone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Let's Build <span class="gradient-text">Together</span></h2>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="contact-info reveal">
+          <h3>Have a project in mind?</h3>
+          <p>Tell me about your business, your goals, and what you need. I'll review your project and get back to you within 24 hours with a clear action plan.</p>
+          <a href="mailto:hello@zoka.works" class="contact-email" id="contact-email-link">
+            <span>📧</span>
+            hello@zoka.works
+          </a>
+        </div>
+
+        <div class="reveal">
+          <!-- Contact Form -->
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Company name" />
+              </div>
+              <div class="form-group">
+                <label for="projectType">Project Type</label>
+                <select id="projectType" name="projectType" required>
+                  <option value="" disabled selected>Select a project type</option>
+                  <option value="website">Website Development</option>
+                  <option value="leadgen">AI Lead Generation</option>
+                  <option value="optimization">Optimization</option>
+                  <option value="full-system">Complete Growth System</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="budget">Budget Range</label>
+              <select id="budget" name="budget">
+                <option value="" disabled selected>Select budget range</option>
+                <option value="1k-3k">$1,000 – $3,000</option>
+                <option value="3k-5k">$3,000 – $5,000</option>
+                <option value="5k-10k">$5,000 – $10,000</option>
+                <option value="10k+">$10,000+</option>
+                <option value="flexible">Flexible / Let's discuss</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project, goals, and timeline..." rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+              Send Project Details
+            </button>
+          </form>
+
+          <!-- Success State -->
+          <div class="form-success glass-card" id="formSuccess">
+            <div class="success-icon">✓</div>
+            <h3>Thanks — I'll review your project and get back within 24 hours.</h3>
+            <p>I'll analyze your requirements and prepare a clear proposal tailored to your goals.</p>
+            <div class="meet-note">
+              💡 If needed, we can connect over Google Meet to discuss details. Feel free to suggest a time in your next reply, or simply wait for mine.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CTA ====== -->
+  <section class="section cta-section" id="cta">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>Want a system that actually <span class="gradient-text">brings clients?</span></h2>
+        <p>Let's build something that works. No fluff, no hype — just results.</p>
+        <a href="#contact" class="btn btn-primary" id="cta-bottom-start">Start Your Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-copy">
+        &copy; 2026 zoka<span style="background:var(--accent-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">.works</span> — All rights reserved
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
