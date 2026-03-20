@@ -329,10 +329,15 @@ ul  { list-style: none; }
 }
 
 .logo {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 48px; /* Adjust this value if the logo needs to be bigger/smaller */
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .logo span {
