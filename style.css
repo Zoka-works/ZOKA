@@ -679,59 +679,84 @@ ul  { list-style: none; }
 }
 
 /* ============================================
-   ABOUT
+   TRUST / WHY ZOKA
    ============================================ */
-.about-grid {
+.trust-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
+  gap: 24px;
   margin-top: 48px;
 }
 
-.about-text p {
-  color: var(--text-secondary);
-  font-size: 1.05rem;
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.trust-card {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.skill-card {
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
+.trust-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-glow);
+  box-shadow: 0 12px 32px rgba(6, 6, 10, 0.4);
 }
 
-.skill-card h4 {
-  font-family: var(--font-heading);
-  font-size: 0.88rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text-primary);
-}
-
-.skill-card p {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.skill-card .skill-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--accent-gradient);
+.trust-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 14px;
-  font-size: 1rem;
+  margin-bottom: 8px;
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-1);
+}
+
+.trust-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.trust-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.trust-quote {
+  margin-top: 60px;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), transparent);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.trust-quote p {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-style: italic;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.quote-icon {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  color: var(--accent-3);
+  opacity: 0.2;
+  line-height: 0.5;
+  margin-bottom: -10px;
 }
 
 /* ============================================
@@ -1104,14 +1129,39 @@ ul  { list-style: none; }
   color: var(--text-primary);
   z-index: 2;
   box-shadow: 0 4px 12px rgba(6, 6, 10, 0.4);
+  transition: var(--transition);
+}
+
+.step-num.highlight-num {
+  background: var(--accent-gradient);
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
 }
 
 .step-line {
   flex-grow: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--border-glow) 0%, transparent 100%);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
   margin-left: -5px;
   z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-line::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+  animation: pulseLine 2.5s linear infinite;
+}
+
+@keyframes pulseLine {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(200%); opacity: 0; }
 }
 
 .process-step:last-child .step-line {
@@ -1121,6 +1171,23 @@ ul  { list-style: none; }
 .step-content {
   padding: 32px 24px;
   height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.step-content.highlight-card {
+  border-color: var(--accent-1);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.03));
+}
+
+.process-step:hover .step-content {
+  transform: translateY(-4px);
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.process-step:hover .step-num {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
 }
 
 .step-content h4 {
@@ -1690,9 +1757,9 @@ ul  { list-style: none; }
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  .about-grid {
+  .trust-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 
   .services-grid,
