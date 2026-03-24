@@ -38,7 +38,7 @@ const reasons: Reason[] = [
   {
     title: "Focused on ROI, Not Just Design",
     description:
-      "Every decision is made to generate replies, meetings, and real business outcomes.",
+      "Every decision is made to increase replies, meetings, and revenue.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -64,9 +64,9 @@ const reasons: Reason[] = [
     ),
   },
   {
-    title: "AI + Engineering + Outbound Combined",
+    title: "Data + Outreach + Routing Combined",
     description:
-      "A complete system blending automation, infrastructure, and strategy.",
+      "Lead sourcing, sending infrastructure, and follow-up logic work together.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -137,7 +137,7 @@ const reasons: Reason[] = [
   {
     title: "Fast Execution (7-14 Days)",
     description:
-      "Get your outbound engine live quickly and start seeing results.",
+      "Most outbound systems go live in 7-14 days.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -175,14 +175,12 @@ export default function WhyZokaWorks(): React.JSX.Element {
             Built for results
             <span className="text-white/45"> - </span>
             <span className="bg-gradient-to-r from-blue-300 via-violet-300 to-blue-500 bg-clip-text text-transparent">
-              not just good-looking systems.
+              not just polished screens.
             </span>
           </h2>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/62 sm:text-lg">
-            Zoka.works is designed like a product layer for outbound growth:
-            technical, measurable, and built to move revenue instead of just
-            shipping visuals.
+            Built to produce replies, meetings, and a predictable B2B pipeline.
           </p>
         </div>
 

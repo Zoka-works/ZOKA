@@ -64,7 +64,7 @@ const steps: Step[] = [
     number: "03",
     title: "Launch Personalized Outreach",
     description:
-      "AI-powered emails with personalization and optimized deliverability.",
+      "Personalized emails sent from inboxes configured for deliverability.",
     highlighted: true,
     icon: (
       <svg
@@ -162,7 +162,7 @@ export default function HowItWorksFlow(): React.JSX.Element {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/62 sm:text-lg">
-            A simple, proven system to generate qualified leads consistently.
+            A repeatable process that turns a lead list into booked meetings.
           </p>
         </div>
 
@@ -217,7 +217,7 @@ export default function HowItWorksFlow(): React.JSX.Element {
 
         <div className="mt-10 text-center">
           <p className="text-sm font-medium tracking-[0.18em] text-white/42 uppercase">
-            System goes live in 7-14 days.
+            Most systems go live in 7-14 days.
           </p>
         </div>
       </div>
