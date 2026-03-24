@@ -716,6 +716,74 @@ ul  { list-style: none; }
 }
 
 /* ============================================
+   SYSTEMS I BUILD
+   ============================================ */
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.system-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.system-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  pointer-events: none;
+}
+
+.system-card:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+.system-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.system-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.system-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================
    OFFER
    ============================================ */
 .offer-card {
@@ -1007,6 +1075,7 @@ ul  { list-style: none; }
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 .form-group input:focus,
@@ -1174,6 +1243,7 @@ ul  { list-style: none; }
    ============================================ */
 @media (max-width: 1024px) {
   .services-grid,
+  .systems-grid,
   .results-grid,
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1243,6 +1313,7 @@ ul  { list-style: none; }
   }
 
   .services-grid,
+  .systems-grid,
   .results-grid,
   .portfolio-grid,
   .why-grid {
