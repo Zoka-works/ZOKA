@@ -878,106 +878,86 @@ ul  { list-style: none; }
 /* ============================================
    PRODUCT + IMPACT
    ============================================ */
-.product-split {
+.pricing-results-split {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 40px;
+  gap: 60px;
+  align-items: start;
   margin-top: 48px;
 }
 
-.product-offer {
-  padding: 48px 40px;
+.saas-pricing-grid.layout-compact {
   display: flex;
   flex-direction: column;
-  position: relative;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(6, 182, 212, 0.02));
-  border: 1px solid var(--border-glow);
+  gap: 24px;
+  margin-top: 0;
 }
 
-.offer-head {
-  margin-bottom: 32px;
-}
-
-.offer-head h3 {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
-
-.offer-head p {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.offer-price {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 32px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.offer-price .price-val {
-  font-family: var(--font-heading);
-  font-size: 3.2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-
-.offer-price .price-label {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-}
-
-.offer-features {
-  margin-bottom: 40px;
-  flex-grow: 1;
-}
-
-.feat-title {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--text-muted);
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.feat-list {
-  display: flex;
-  flex-direction: column;
+.saas-pricing-grid.layout-compact .saas-pricing-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 32px 32px 24px 32px;
   gap: 16px;
 }
 
-.feat-item {
+.saas-pricing-grid.layout-compact .saas-pricing-header {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.saas-pricing-grid.layout-compact .saas-pricing-features {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 16px;
+  margin-top: 8px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.saas-pricing-grid.layout-compact .saas-pricing-btn {
+  margin-bottom: 0;
+  width: auto;
+  min-width: 140px;
+}
+
+.saas-pricing-grid.layout-compact .saas-pricing-price {
+  margin-bottom: 0;
+  justify-content: flex-end;
+}
+
+.sticky-results {
+  position: sticky;
+  top: 120px;
+}
+
+/* ============================================
+   PRICING TRUST BADGES
+   ============================================ */
+.pricing-trust-badges {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.feat-item .check {
-  color: var(--accent-3);
-  font-weight: 800;
-}
-
-.offer-btn {
-  width: 100%;
-  text-align: center;
+  align-items: center;
   justify-content: center;
-  padding: 18px;
-  font-size: 1.05rem;
+  gap: 32px;
+  margin-top: 60px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.trust-badge svg {
+  color: var(--accent-3);
+  opacity: 0.8;
 }
 
 .product-results {
@@ -1158,6 +1138,185 @@ ul  { list-style: none; }
 }
 
 /* ============================================
+   SAAS PRICING
+   ============================================ */
+.saas-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.saas-pricing-card {
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: var(--bg-glass);
+}
+
+.saas-pricing-card.popular {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.03));
+  border: 1px solid var(--border-glow);
+  transform: translateY(-8px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-gradient);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  white-space: nowrap;
+}
+
+.saas-pricing-header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.saas-pricing-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.saas-pricing-header p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.saas-pricing-price {
+  text-align: center;
+  font-size: 3rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.saas-pricing-price .currency {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-right: 4px;
+  transform: translateY(-12px);
+}
+
+.saas-pricing-price .period {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.saas-pricing-btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.pricing-subtext {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.saas-pricing-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
+  flex-grow: 1;
+}
+
+.saas-pricing-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.saas-pricing-feature .check {
+  color: var(--accent-3);
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.pricing-toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.toggle-label {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.toggle-label.active {
+  color: var(--text-primary);
+}
+
+.discount-badge {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 8px;
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--accent-2);
+  border-radius: 4px;
+  font-weight: 700;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.toggle-switch {
+  width: 52px;
+  height: 28px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-knob {
+  width: 20px;
+  height: 20px;
+  background: var(--bg-secondary);
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  transition: transform 0.3s ease;
+}
+
+/* ============================================
    CASE STUDIES + RESULTS
    ============================================ */
 .case-studies-list {
@@ -1322,227 +1481,92 @@ ul  { list-style: none; }
 }
 
 /* ============================================
-   CONTACT
-   ============================================ */
-.contact-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-top: 48px;
-}
-
-.contact-info h3 {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-}
-
-.contact-info p {
-  color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 32px;
-}
-
-.contact-email {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--accent-2);
-  transition: color 0.3s;
-}
-
-.contact-email:hover {
-  color: var(--accent-3);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.form-group label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  font-family: inherit;
-  font-size: 0.92rem;
-  outline: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--accent-1);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.form-group select {
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23a1a1aa' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 36px;
-}
-
-.form-group select option {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 16px;
-  font-size: 1rem;
-  margin-top: 8px;
-}
-
-/* Form success state */
-.form-success {
-  display: none;
-  text-align: center;
-  padding: 48px 24px;
-}
-
-.form-success.active {
-  display: block;
-  animation: fadeInUp 0.6s ease;
-}
-
-.form-success .success-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(34, 197, 94, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  font-size: 1.6rem;
-  color: #22c55e;
-}
-
-.form-success h3 {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.form-success p {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.8;
-  margin-bottom: 8px;
-}
-
-.form-success .meet-note {
-  margin-top: 24px;
-  padding: 20px;
-  background: rgba(99, 102, 241, 0.04);
-  border: 1px solid rgba(99, 102, 241, 0.12);
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ============================================
-   CTA SECTION
+   FREE TRIAL CTA
    ============================================ */
 .cta-section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.cta-conversion-card {
+  padding: 80px 40px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.02));
+  border: 1px solid var(--border-glow);
   text-align: center;
   position: relative;
   overflow: hidden;
-  padding: 100px 0;
-  background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.03), transparent);
+  border-radius: var(--radius-xl);
 }
 
-.cta-section::before {
+.cta-conversion-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 100%, rgba(99, 102, 241, 0.08), transparent 60%);
+  background: radial-gradient(circle at 50% 100%, rgba(99, 102, 241, 0.1), transparent 60%);
   pointer-events: none;
 }
 
-.cta-content {
+.cta-content-inner {
   position: relative;
   z-index: 2;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  padding: 80px 40px;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
-  box-shadow: var(--shadow-card);
 }
 
-.cta-section h2 {
+.cta-headline {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
   font-weight: 800;
-  margin-bottom: 16px;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
   color: var(--text-primary);
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-.cta-section p {
+.cta-sub {
+  font-size: 1.1rem;
   color: var(--text-secondary);
-  font-size: 1.15rem;
-  margin-bottom: 40px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  line-height: 1.6;
+  margin-bottom: 32px;
 }
 
-.cta-buttons {
+.cta-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.cta-check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.cta-check-item .check-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  width: 24px;
+  height: 24px;
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--accent-2);
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.cta-main-btn {
+  padding: 20px 48px;
+  font-size: 1.1rem;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
 }
 
 /* ============================================
@@ -1588,7 +1612,8 @@ ul  { list-style: none; }
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .process-grid {
+  .process-grid,
+  .saas-pricing-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
   }
@@ -1597,7 +1622,7 @@ ul  { list-style: none; }
     display: none;
   }
 
-  .product-split {
+  .pricing-results-split {
     grid-template-columns: 1fr;
     gap: 40px;
   }
@@ -1675,9 +1700,14 @@ ul  { list-style: none; }
     grid-template-columns: 1fr;
   }
 
-  .process-grid {
+  .process-grid,
+  .saas-pricing-grid {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .saas-pricing-card.popular {
+    transform: none;
   }
 
   .why-split,
@@ -1691,22 +1721,33 @@ ul  { list-style: none; }
     top: 0;
   }
 
-  .product-offer {
-    padding: 32px 24px;
-  }
-
-  .contact-wrapper {
+  .saas-pricing-grid.layout-compact .saas-pricing-card {
     grid-template-columns: 1fr;
-    gap: 40px;
+    text-align: center;
+    padding: 24px;
+  }
+  
+  .saas-pricing-grid.layout-compact .saas-pricing-header {
+    text-align: center;
+  }
+  
+  .saas-pricing-grid.layout-compact .saas-pricing-price {
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  
+  .saas-pricing-grid.layout-compact .saas-pricing-btn {
+    width: 100%;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .cta-content {
+  .cta-conversion-card {
     padding: 48px 24px;
-    border-radius: var(--radius-lg);
+  }
+
+  .cta-checklist {
+    align-items: flex-start;
+    display: inline-flex;
+    text-align: left;
   }
 
   .case-study-card {

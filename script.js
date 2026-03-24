@@ -84,23 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ──────────────────────────────────────────
-  // 5. CONTACT FORM SUBMISSION
-  // ──────────────────────────────────────────
-  const contactForm = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
 
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData.entries());
-    console.log('Form submitted:', data);
-
-    contactForm.style.display = 'none';
-    formSuccess.classList.add('active');
-    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
 
   // ──────────────────────────────────────────
   // 6. PARTICLE CANVAS (Hero background)
