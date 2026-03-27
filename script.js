@@ -1,133 +1,146 @@
 /* ============================================
-   ZOKA.WORKS — JavaScript v2.0
-   Professional Enhancement: Scroll animations,
-   nav, form, particles, counters, mouse glow,
-   scroll progress, parallax
+   ZOKA.WORKS — Script v3.0
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ──────────────────────────────────────────
-  // 1. SCROLL REVEAL (Intersection Observer)
-  // ──────────────────────────────────────────
-  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
+  // ──────────────────────────────────────
+  // 1. SCROLL REVEAL (multi-class, stagger)
+  // ──────────────────────────────────────
+  const allReveal = document.querySelectorAll('.reveal, .reveal-fade, .reveal-left, .reveal-scale');
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, delay);
-        revealObserver.unobserve(entry.target);
-      }
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const delay = parseInt(el.dataset.delay || 0);
+      setTimeout(() => el.classList.add('visible'), delay);
+      revealObs.unobserve(el);
     });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  allReveal.forEach(el => revealObs.observe(el));
+
+
+  // ──────────────────────────────────────
+  // 2. HERO ENTRANCE (staggered)
+  // ──────────────────────────────────────
+  const heroRevealEls = document.querySelectorAll('.reveal-fade');
+  heroRevealEls.forEach(el => {
+    const delay = parseInt(el.dataset.delay || 0);
+    setTimeout(() => el.classList.add('visible'), delay + 200);
   });
 
-  revealElements.forEach((el) => {
-    const siblings = el.parentElement.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
-    const siblingIndex = Array.from(siblings).indexOf(el);
-    el.dataset.delay = siblingIndex * 120;
-    revealObserver.observe(el);
-  });
 
-  // ──────────────────────────────────────────
-  // 2. NAVBAR SCROLL EFFECT
-  // ──────────────────────────────────────────
+  // ──────────────────────────────────────
+  // 3. NAVBAR SCROLL + ACTIVE LINKS
+  // ──────────────────────────────────────
   const navbar = document.getElementById('navbar');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
 
-  const handleScroll = () => {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+  const onScroll = () => {
+    // Scrolled class
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+
+    // Scroll progress
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = window.scrollY / docH * 100;
+    document.getElementById('scrollProgress').style.width = pct + '%';
+
+    // Active link highlight
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+
+    // Parallax blobs
+    const scrollY = window.scrollY;
+    const hero = document.querySelector('.hero');
+    if (hero && scrollY < hero.offsetHeight * 1.5) {
+      const b1 = document.querySelector('.blob-1');
+      const b2 = document.querySelector('.blob-2');
+      if (b1) b1.style.transform = `translateY(${scrollY * 0.12}px)`;
+      if (b2) b2.style.transform = `translateY(${-scrollY * 0.08}px)`;
     }
   };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // run once
 
-  // ──────────────────────────────────────────
-  // 3. MOBILE NAV TOGGLE
-  // ──────────────────────────────────────────
+
+  // ──────────────────────────────────────
+  // 4. HAMBURGER MENU
+  // ──────────────────────────────────────
   const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('navLinks');
+  const navLinksEl = document.getElementById('navLinks');
 
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    navLinksEl.classList.toggle('active');
+    document.body.style.overflow = navLinksEl.classList.contains('active') ? 'hidden' : '';
   });
 
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+  navLinksEl.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
       hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
+      navLinksEl.classList.remove('active');
       document.body.style.overflow = '';
     });
   });
 
-  // ──────────────────────────────────────────
-  // 4. SMOOTH SCROLL
-  // ──────────────────────────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
+
+  // ──────────────────────────────────────
+  // 5. SMOOTH SCROLL
+  // ──────────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (!target) return;
       e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        const offset = 80;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+      const top = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
 
-
-  // ──────────────────────────────────────────
-  // 6. PARTICLE CANVAS (Hero background)
-  // ──────────────────────────────────────────
+  // ──────────────────────────────────────
+  // 6. PARTICLE CANVAS
+  // ──────────────────────────────────────
   const canvas = document.getElementById('particles-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationFrameId;
-    let width, height;
+    let particles = [], raf, W, H;
 
     const resize = () => {
-      const hero = canvas.parentElement;
-      width = canvas.width = hero.offsetWidth;
-      height = canvas.height = hero.offsetHeight;
+      W = canvas.width  = canvas.parentElement.offsetWidth;
+      H = canvas.height = canvas.parentElement.offsetHeight;
     };
 
-    class Particle {
-      constructor() {
-        this.reset();
-      }
-
+    class P {
       reset() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.size = Math.random() * 1.5 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.3;
-        this.speedY = (Math.random() - 0.5) * 0.3;
-        this.opacity = Math.random() * 0.3 + 0.1;
+        this.x = Math.random() * W;
+        this.y = Math.random() * H;
+        this.r = Math.random() * 1.4 + 0.4;
+        this.vx = (Math.random() - 0.5) * 0.28;
+        this.vy = (Math.random() - 0.5) * 0.28;
+        this.a = Math.random() * 0.25 + 0.06;
       }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x < 0 || this.x > width) this.speedX *= -1;
-        if (this.y < 0 || this.y > height) this.speedY *= -1;
+      constructor() { this.reset(); }
+      step() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > W) this.vx *= -1;
+        if (this.y < 0 || this.y > H) this.vy *= -1;
       }
-
       draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(99, 102, 241, ${this.opacity})`;
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(99,102,241,${this.a})`;
         ctx.fill();
       }
     }
@@ -135,25 +148,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const init = () => {
       resize();
       particles = [];
-      const count = Math.min(Math.floor((width * height) / 14000), 70);
-      for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-      }
+      const n = Math.min(Math.floor(W * H / 14000), 65);
+      for (let i = 0; i < n; i++) particles.push(new P());
     };
 
-    const connectParticles = () => {
+    const connect = () => {
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 140) {
-            const opacity = (1 - dist / 140) * 0.08;
+          const d = Math.sqrt(dx*dx + dy*dy);
+          if (d < 130) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`;
+            ctx.strokeStyle = `rgba(99,102,241,${(1 - d/130) * 0.07})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -161,194 +170,135 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    const animate = () => {
-      ctx.clearRect(0, 0, width, height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      connectParticles();
-      animationFrameId = requestAnimationFrame(animate);
+    const loop = () => {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => { p.step(); p.draw(); });
+      connect();
+      raf = requestAnimationFrame(loop);
     };
 
-    init();
-    animate();
-
-    window.addEventListener('resize', () => {
-      cancelAnimationFrame(animationFrameId);
-      init();
-      animate();
-    });
+    init(); loop();
+    window.addEventListener('resize', () => { cancelAnimationFrame(raf); init(); loop(); });
   }
 
-  // ──────────────────────────────────────────
-  // 7. HERO ENTRANCE ANIMATION
-  // ──────────────────────────────────────────
-  const heroH1 = document.querySelector('.hero h1');
-  if (heroH1) {
-    heroH1.style.opacity = '0';
-    heroH1.style.transform = 'translateY(20px)';
-    heroH1.style.transition = 'opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s';
 
-    setTimeout(() => {
-      heroH1.style.opacity = '1';
-      heroH1.style.transform = 'translateY(0)';
-    }, 100);
-  }
+  // ──────────────────────────────────────
+  // 7. ANIMATED COUNTERS
+  // ──────────────────────────────────────
+  const counterEls = document.querySelectorAll('[data-count]');
 
-  const heroPara = document.querySelector('.hero p');
-  const heroButtons = document.querySelector('.hero-buttons');
-  const heroBadge = document.querySelector('.hero-badge');
-  const trustStrip = document.querySelector('.trust-strip');
-
-  [heroBadge, heroPara, heroButtons, trustStrip].forEach((el, i) => {
-    if (el) {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = `opacity 0.8s ease ${0.5 + i * 0.2}s, transform 0.8s ease ${0.5 + i * 0.2}s`;
-
-      setTimeout(() => {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, 100);
-    }
-  });
-
-  // ──────────────────────────────────────────
-  // 8. SCROLL PROGRESS BAR
-  // ──────────────────────────────────────────
-  const scrollProgress = document.getElementById('scrollProgress');
-
-  const updateScrollProgress = () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = (scrollTop / docHeight) * 100;
-    scrollProgress.style.width = progress + '%';
-  };
-
-  window.addEventListener('scroll', updateScrollProgress, { passive: true });
-
-  // ──────────────────────────────────────────
-  // 9. MOUSE GLOW EFFECT (desktop only)
-  // ──────────────────────────────────────────
-  const mouseGlow = document.getElementById('mouseGlow');
-
-  if (window.matchMedia('(min-width: 769px)').matches && mouseGlow) {
-    let mouseX = 0, mouseY = 0;
-    let glowX = 0, glowY = 0;
-    let isMouseInHero = false;
-
-    const heroSection = document.getElementById('hero');
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-
-      // Check if mouse is in hero area for stronger glow
-      const heroRect = heroSection.getBoundingClientRect();
-      isMouseInHero = mouseY < heroRect.bottom;
-    });
-
-    const animateGlow = () => {
-      glowX += (mouseX - glowX) * 0.08;
-      glowY += (mouseY - glowY) * 0.08;
-
-      mouseGlow.style.left = glowX + 'px';
-      mouseGlow.style.top = glowY + 'px';
-
-      if (isMouseInHero) {
-        mouseGlow.classList.add('active');
-      } else {
-        mouseGlow.classList.remove('active');
-      }
-
-      requestAnimationFrame(animateGlow);
-    };
-
-    animateGlow();
-  }
-
-  // ──────────────────────────────────────────
-  // 10. ANIMATED STAT COUNTERS
-  // ──────────────────────────────────────────
-  const counterElements = document.querySelectorAll('.result-value[data-count]');
-
-  const counterObserver = new IntersectionObserver((entries) => {
+  const countObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.count);
-        const prefix = el.dataset.prefix || '';
-        const suffix = el.dataset.suffix || '';
-        const duration = 2000;
-        const startTime = performance.now();
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const start = performance.now();
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+      const tick = now => {
+        const p = Math.min((now - start) / duration, 1);
+        const val = Math.round(easeOut(p) * target);
+        el.textContent = val + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      countObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
 
-        const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+  counterEls.forEach(el => countObs.observe(el));
 
-        const updateCounter = (currentTime) => {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const easedProgress = easeOut(progress);
-          const current = Math.round(easedProgress * target);
 
-          el.textContent = prefix + current + suffix;
+  // ──────────────────────────────────────
+  // 8. MOUSE GLOW (desktop)
+  // ──────────────────────────────────────
+  const glow = document.getElementById('mouseGlow');
+  if (glow && window.matchMedia('(min-width: 769px)').matches) {
+    let mx = 0, my = 0, gx = 0, gy = 0;
+    const hero = document.getElementById('hero');
 
-          if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-          }
-        };
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 
-        requestAnimationFrame(updateCounter);
-        counterObserver.unobserve(el);
+    const animGlow = () => {
+      gx += (mx - gx) * 0.07;
+      gy += (my - gy) * 0.07;
+      glow.style.left = gx + 'px';
+      glow.style.top  = gy + 'px';
+      const inHero = hero && my < hero.getBoundingClientRect().bottom + 100;
+      glow.classList.toggle('active', inHero);
+      requestAnimationFrame(animGlow);
+    };
+    animGlow();
+  }
+
+
+  // ──────────────────────────────────────
+  // 9. SERVICE TAB TOGGLE
+  // ──────────────────────────────────────
+  const tabs = document.querySelectorAll('.service-tab');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => {
+        p.classList.remove('active');
+        p.style.animation = '';
+      });
+      tab.classList.add('active');
+      const target = document.getElementById(tab.dataset.target);
+      if (target) {
+        target.classList.add('active');
+        target.style.animation = 'tabIn 0.4s cubic-bezier(0.16,1,0.3,1) both';
+        // Re-trigger reveals inside new panel
+        target.querySelectorAll('.reveal, .reveal-fade').forEach(el => {
+          el.classList.remove('visible');
+          setTimeout(() => revealObs.observe(el), 10);
+        });
       }
     });
-  }, {
-    threshold: 0.5
   });
 
-  counterElements.forEach(el => counterObserver.observe(el));
 
-  // Handle the infinity symbol (no counter animation needed)
-  const symbolElements = document.querySelectorAll('.result-value[data-symbol]');
-  symbolElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transition = 'opacity 0.8s ease';
-
-    const symbolObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          el.style.opacity = '1';
-          symbolObserver.unobserve(el);
-        }
+  // ──────────────────────────────────────
+  // 10. CARD TILT (subtle 3D, desktop)
+  // ──────────────────────────────────────
+  if (window.matchMedia('(min-width: 769px)').matches) {
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width  - 0.5;
+        const y = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform = `translateY(-4px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
       });
-    }, { threshold: 0.5 });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.transition = 'transform 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.35s, box-shadow 0.35s';
+      });
+      card.addEventListener('mouseenter', () => {
+        card.style.transition = 'transform 0.1s ease, border-color 0.35s, box-shadow 0.35s';
+      });
+    });
+  }
 
-    symbolObserver.observe(el);
-  });
 
-  // ──────────────────────────────────────────
-  // 11. PARALLAX ON HERO ELEMENTS
-  // ──────────────────────────────────────────
-  const heroVisual = document.querySelector('.hero-visual');
-  const heroAurora = document.querySelector('.hero-aurora');
-
-  const handleParallax = () => {
-    const scrollY = window.scrollY;
-    const heroHeight = document.querySelector('.hero').offsetHeight;
-
-    if (scrollY < heroHeight) {
-      const ratio = scrollY / heroHeight;
-
-      if (heroVisual) {
-        heroVisual.style.transform = `translateY(calc(-50% + ${scrollY * 0.15}px))`;
-      }
-
-      if (heroAurora) {
-        heroAurora.style.transform = `translateY(${scrollY * 0.08}px)`;
-      }
-    }
-  };
-
-  window.addEventListener('scroll', handleParallax, { passive: true });
+  // (marquee is handled in HTML/CSS directly)
 
 });
+
+// ──────────────────────────────────────
+// CSS INJECTION: Tab animation keyframe
+// ──────────────────────────────────────
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes tabIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .nav-link.active {
+    color: var(--text-1) !important;
+    background: rgba(255,255,255,0.07) !important;
+  }
+`;
+document.head.appendChild(style);
