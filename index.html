@@ -3,253 +3,502 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zoka Works — Outbound Systems That Book Qualified B2B Meetings</title>
-  <meta name="description" content="Stop guessing with cold email. Zoka Works is an end-to-end outbound engine that finds ideal buyers, sends personalized outreach, and routes warm replies straight to your inbox." />
-  
-  <meta property="og:title" content="Zoka Works — Outbound Systems That Book Qualified Meetings" />
-  <meta property="og:description" content="Automate your outbound. Fill your calendar with qualified B2B leads." />
+  <title>Zoka Works — AI-Powered B2B Leads & Software Solutions</title>
+  <meta name="description" content="Zoka Works delivers end-to-end outbound B2B lead generation powered by AI, plus custom software, web, and mobile development for growing businesses." />
+  <meta property="og:title" content="Zoka Works — AI-Powered B2B Growth & Software Agency" />
+  <meta property="og:description" content="Fill your pipeline with qualified leads. Build software that scales. One agency, two engines." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://zoka.works" />
-
   <link rel="icon" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- NAV -->
   <nav class="navbar" id="navbar">
-    <div class="container">
+    <div class="container nav-inner">
       <a href="#" class="logo">
-        <img src="logo.png" alt="ZokaWorks logo" class="nav-logo-img" />
+        <img src="logo.png" alt="Zoka Works" class="nav-logo-img" />
+        <span class="logo-text">Zoka<span class="logo-accent">Works</span></span>
       </a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
       <div class="nav-links" id="navLinks">
-        <a href="#what-this-does">Product</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#results">Results</a>
-        <a href="#why-zoka">Why Us</a>
-        <a href="#cta" class="btn btn-primary nav-cta">Book Strategy Call</a>
+        <a href="#leads" class="nav-link">AI Leads</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#results" class="nav-link">Results</a>
+        <a href="#why-zoka" class="nav-link">Why Us</a>
+        <div class="nav-divider"></div>
+        <a href="#cta" class="btn btn-nav">Book a Call</a>
       </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- 1. Hero Section -->
+  <!-- HERO -->
   <section class="hero section" id="hero">
+    <canvas id="particles-canvas"></canvas>
     <div class="hero-aurora">
-      <div class="blob blob-main"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
     </div>
-    <div class="hero-visual">
-      <div class="grid-pattern"></div>
-    </div>
-    
+    <div class="hero-grid-overlay"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Accepting new clients
+        <div class="hero-badge reveal-fade" data-delay="0">
+          <span class="badge-dot"></span>
+          <span>Accepting new clients — <strong>Limited spots available</strong></span>
         </div>
-
-        <h1>Automate your outbound. Fill your calendar with <span class="gradient-text">qualified B2B leads.</span></h1>
-        
-        <p>Zoka Works is an end-to-end outbound engine that finds your ideal buyers, sends personalized outreach, and routes warm replies straight to your inbox.</p>
-        
-        <div class="hero-buttons">
-          <a href="#cta" class="btn btn-primary">Book a Strategy Call</a>
-          <a href="https://meet.google.com" target="_blank" class="btn btn-secondary">Connect via Google Meet</a>
+        <h1 class="hero-headline reveal-fade" data-delay="100">
+          One agency.<br/>Two engines.<br/>
+          <span class="gradient-text">Unstoppable growth.</span>
+        </h1>
+        <p class="hero-sub reveal-fade" data-delay="250">
+          We find your ideal B2B buyers with AI-powered outbound — and build the software that turns prospects into loyal customers.
+        </p>
+        <div class="hero-pills reveal-fade" data-delay="350">
+          <span class="pill"><span class="pill-dot"></span>B2B Lead Generation</span>
+          <span class="pill"><span class="pill-dot green"></span>Custom Software Dev</span>
+          <span class="pill"><span class="pill-dot blue"></span>Web &amp; Mobile Apps</span>
         </div>
-        
-        <div class="hero-trust-line">
-          <em>*This is the exact system we use to generate our own leads.</em>
+        <div class="hero-buttons reveal-fade" data-delay="450">
+          <a href="#cta" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            Book a Strategy Call
+          </a>
+          <a href="#services" class="btn btn-ghost">
+            Explore Services
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="hero-stats reveal-fade" data-delay="550">
+          <div class="hero-stat">
+            <span class="stat-num" data-count="300" data-suffix="+">0+</span>
+            <span class="stat-label">Leads Generated</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="hero-stat">
+            <span class="stat-num" data-count="40" data-suffix="%">0%</span>
+            <span class="stat-label">Avg Reply Rate</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="hero-stat">
+            <span class="stat-num" data-count="14" data-suffix=" days">0 days</span>
+            <span class="stat-label">To First Campaign</span>
+          </div>
         </div>
       </div>
     </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
   </section>
 
-  <!-- 2. What This Does Section -->
-  <section class="section" id="what-this-does">
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
     <div class="container">
-      <div class="reveal">
-        <span class="section-label">Product</span>
-        <h2 class="section-title">The engine behind your <span class="gradient-text">pipeline.</span></h2>
-        <p class="section-subtitle">This is a live outbound system designed to replace manual prospecting.</p>
+      <p class="trust-label">Trusted by growth teams at</p>
+      <div class="trust-track">
+        <div class="trust-logos">
+          <span class="trust-logo">SaaSify</span>
+          <span class="trust-logo">NexaHQ</span>
+          <span class="trust-logo">GrowthLab</span>
+          <span class="trust-logo">CloudPivot</span>
+          <span class="trust-logo">LeadForge</span>
+          <span class="trust-logo">ScaleAxis</span>
+        </div>
+        <div class="trust-logos" aria-hidden="true">
+          <span class="trust-logo">SaaSify</span>
+          <span class="trust-logo">NexaHQ</span>
+          <span class="trust-logo">GrowthLab</span>
+          <span class="trust-logo">CloudPivot</span>
+          <span class="trust-logo">LeadForge</span>
+          <span class="trust-logo">ScaleAxis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE TOGGLE -->
+  <section class="section" id="leads">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Our Offerings</span>
+        <h2 class="section-title">Everything your business needs to <span class="gradient-text">scale faster.</span></h2>
+        <p class="section-subtitle">From filling your sales pipeline to shipping production-grade software — we do both, and we do them exceptionally well.</p>
+      </div>
+      <div class="service-tabs reveal">
+        <button class="service-tab active" data-target="tab-leads">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          AI Lead Generation
+        </button>
+        <button class="service-tab" data-target="tab-dev">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Software Development
+        </button>
       </div>
 
-      <div class="features-grid">
-        <div class="glass-card feature-card reveal">
-          <div class="feature-icon">🔍</div>
-          <h3>Identifies Target Leads</h3>
-          <p>Pinpoints decision-makers in your exact ICP so you only talk to the right people.</p>
+      <div class="tab-panel active" id="tab-leads">
+        <div class="tab-intro reveal">
+          <span class="tab-tag">AI-Powered Outbound</span>
+          <h3>The engine behind your <span class="gradient-text">pipeline.</span></h3>
+          <p>A fully managed, end-to-end outbound system that replaces manual prospecting entirely. We find, enrich, and engage your ideal buyers — you just show up to close.</p>
         </div>
-        <div class="glass-card feature-card reveal" style="transition-delay: 0.1s">
-          <div class="feature-icon">📊</div>
-          <h3>Enriches Data</h3>
-          <p>Gathers verified contact info and deep personalization signals to ensure high deliverability.</p>
+        <div class="features-grid">
+          <div class="glass-card feature-card reveal" data-delay="0">
+            <div class="feature-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <h3>ICP Lead Identification</h3>
+            <p>Pinpoints decision-makers matching your exact ideal customer profile — no guesswork, no wasted outreach.</p>
+            <div class="card-glow"></div>
+          </div>
+          <div class="glass-card feature-card reveal" data-delay="100">
+            <div class="feature-icon-wrap green">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            </div>
+            <h3>Deep Data Enrichment</h3>
+            <p>Verified contacts, intent signals, and rich context — fuelling hyper-personalized messaging at scale.</p>
+            <div class="card-glow green"></div>
+          </div>
+          <div class="glass-card feature-card reveal" data-delay="200">
+            <div class="feature-icon-wrap blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h3>Personalized Outreach</h3>
+            <p>1:1 tailored sequences that cut through inbox noise — boosting reply rates by 3–5× versus generic blasts.</p>
+            <div class="card-glow blue"></div>
+          </div>
+          <div class="glass-card feature-card reveal" data-delay="300">
+            <div class="feature-icon-wrap purple">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3>Warm Reply Routing</h3>
+            <p>Interested responses are flagged and routed directly to your team — every warm lead, zero missed.</p>
+            <div class="card-glow purple"></div>
+          </div>
         </div>
-        <div class="glass-card feature-card reveal" style="transition-delay: 0.2s">
-          <div class="feature-icon">✉️</div>
-          <h3>Sends Personalized Outreach</h3>
-          <p>Delivers 1:1 tailored messages at scale, cutting through the noise in crowded inboxes.</p>
+      </div>
+
+      <div class="tab-panel" id="tab-dev">
+        <div class="tab-intro reveal">
+          <span class="tab-tag green">Full-Stack Development</span>
+          <h3>We build software that <span class="gradient-text">actually ships.</span></h3>
+          <p>From landing pages to full-stack SaaS platforms — our dev team builds clean, performant, scalable digital products tailored to your exact needs.</p>
         </div>
-        <div class="glass-card feature-card reveal" style="transition-delay: 0.3s">
-          <div class="feature-icon">🎯</div>
-          <h3>Generates Replies</h3>
-          <p>Routes warm, interested responses directly to your team so you can focus on closing.</p>
+        <div class="dev-services-grid">
+          <div class="glass-card dev-card reveal" data-delay="0">
+            <div class="dev-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <div class="dev-card-body"><h4>Website Development</h4><p>High-converting landing pages, corporate sites, and full marketing platforms built with precision.</p><ul class="dev-list"><li>SaaS marketing sites</li><li>E-commerce stores</li><li>Portfolio &amp; agency sites</li></ul></div>
+            <span class="dev-tag">Web</span>
+          </div>
+          <div class="glass-card dev-card reveal" data-delay="100">
+            <div class="dev-card-icon green"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <div class="dev-card-body"><h4>Mobile App Development</h4><p>Cross-platform iOS &amp; Android apps that feel native — built for performance and user delight.</p><ul class="dev-list"><li>React Native / Flutter</li><li>App store deployment</li><li>Push notifications &amp; APIs</li></ul></div>
+            <span class="dev-tag green">Mobile</span>
+          </div>
+          <div class="glass-card dev-card reveal" data-delay="200">
+            <div class="dev-card-icon blue"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <div class="dev-card-body"><h4>Custom Software</h4><p>Bespoke internal tools, dashboards, CRMs, ERPs, and automation systems built to your spec.</p><ul class="dev-list"><li>Admin dashboards</li><li>Workflow automation</li><li>API integrations</li></ul></div>
+            <span class="dev-tag blue">Software</span>
+          </div>
+          <div class="glass-card dev-card reveal" data-delay="300">
+            <div class="dev-card-icon purple"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <div class="dev-card-body"><h4>SaaS Product Development</h4><p>End-to-end SaaS platform builds — from MVP to production — with auth, billing, and multi-tenancy.</p><ul class="dev-list"><li>MVP in 4–6 weeks</li><li>Stripe / payment integration</li><li>Scalable cloud architecture</li></ul></div>
+            <span class="dev-tag purple">SaaS</span>
+          </div>
+          <div class="glass-card dev-card reveal" data-delay="400">
+            <div class="dev-card-icon orange"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="dev-card-body"><h4>UI/UX Design</h4><p>Beautiful, conversion-optimized design systems — Figma prototypes, brand kits, and component libraries.</p><ul class="dev-list"><li>Figma design systems</li><li>User flow &amp; wireframes</li><li>Brand identity kits</li></ul></div>
+            <span class="dev-tag orange">Design</span>
+          </div>
+          <div class="glass-card dev-card reveal" data-delay="500">
+            <div class="dev-card-icon teal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="dev-card-body"><h4>AI-Powered Tools</h4><p>Custom AI integrations — chatbots, automations, LLM-powered features embedded into your product.</p><ul class="dev-list"><li>GPT / Claude integrations</li><li>AI workflow automation</li><li>Intelligent data processing</li></ul></div>
+            <span class="dev-tag teal">AI Dev</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. How It Works Section (4-Step Flow) -->
+  <!-- HOW IT WORKS -->
   <section class="section alt-bg" id="how-it-works">
     <div class="container">
-      <div class="reveal text-center">
-        <span class="section-label">Workflow</span>
-        <h2 class="section-title">A system designed for <span class="gradient-text">simplicity.</span></h2>
+      <div class="section-header text-center reveal">
+        <span class="section-label">The Process</span>
+        <h2 class="section-title">From zero to <span class="gradient-text">booked meetings</span> in 4 steps.</h2>
+        <p class="section-subtitle">Simple, transparent, and built around results. No fluff — just a proven system.</p>
       </div>
-
-      <div class="process-steps">
-        <div class="step-card reveal">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Find Leads</h3>
-            <p>We build an ultra-targeted list of your ideal buyers based on your unique criteria.</p>
+      <div class="process-flow">
+        <div class="process-step reveal" data-delay="0">
+          <div class="step-num">01</div>
+          <div class="step-connector"></div>
+          <div class="step-body">
+            <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+            <h4>ICP &amp; Strategy</h4>
+            <p>We define your ideal customer profile and craft the outbound strategy around your offer and market.</p>
           </div>
         </div>
-        
-        <div class="step-card reveal" style="transition-delay: 0.1s">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Enrich Data</h3>
-            <p>Every lead is enriched with verified data and personalized context for maximum relevance.</p>
+        <div class="process-step reveal" data-delay="120">
+          <div class="step-num">02</div>
+          <div class="step-connector"></div>
+          <div class="step-body">
+            <div class="step-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+            <h4>Build &amp; Enrich</h4>
+            <p>We scrape, verify, and enrich targeted lists with intent signals and personalisation data.</p>
           </div>
         </div>
-        
-        <div class="step-card reveal" style="transition-delay: 0.2s">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Send Outreach</h3>
-            <p>Automated, highly-relevant campaigns launch on your behalf while protecting your domain.</p>
+        <div class="process-step reveal" data-delay="240">
+          <div class="step-num">03</div>
+          <div class="step-connector"></div>
+          <div class="step-body">
+            <div class="step-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <h4>Launch Campaigns</h4>
+            <p>Automated, domain-safe sequences go live — sending personalised outreach that converts.</p>
           </div>
         </div>
-        
-        <div class="step-card reveal" style="transition-delay: 0.3s">
-          <div class="step-number">4</div>
-          <div class="step-content highlight">
-            <h3>Get Replies</h3>
-            <p>You wake up to qualified responses ready to book a meeting. No cold calling required.</p>
+        <div class="process-step last reveal" data-delay="360">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <div class="step-icon purple"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <h4>Replies &amp; Meetings</h4>
+            <p>Warm replies land in your inbox, pre-qualified and ready to book — you just show up and close.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Results / Outcome Section -->
+  <!-- RESULTS -->
   <section class="section" id="results">
     <div class="container">
-      <div class="reveal">
+      <div class="section-header reveal">
         <span class="section-label">Outcomes</span>
-        <h2 class="section-title">We handle the prospecting. You focus on <span class="gradient-text">closing.</span></h2>
+        <h2 class="section-title">We handle prospecting.<br/>You focus on <span class="gradient-text">closing.</span></h2>
       </div>
-
+      <div class="metrics-row">
+        <div class="metric-card reveal" data-delay="0">
+          <div class="metric-value" data-count="3" data-suffix="×">0×</div>
+          <div class="metric-label">Reply Rate Uplift</div>
+          <div class="metric-desc">Versus cold outreach benchmarks</div>
+        </div>
+        <div class="metric-card reveal" data-delay="100">
+          <div class="metric-value" data-count="40" data-suffix="+">0+</div>
+          <div class="metric-label">Hours Saved / Month</div>
+          <div class="metric-desc">No more manual SDR busywork</div>
+        </div>
+        <div class="metric-card reveal" data-delay="200">
+          <div class="metric-value" data-count="14" data-suffix=" days">0 days</div>
+          <div class="metric-label">Time to First Send</div>
+          <div class="metric-desc">From onboarding to live campaigns</div>
+        </div>
+        <div class="metric-card reveal" data-delay="300">
+          <div class="metric-value">∞</div>
+          <div class="metric-label">Scalable Pipeline</div>
+          <div class="metric-desc">Consistent meetings, week over week</div>
+        </div>
+      </div>
       <div class="outcomes-grid">
-        <div class="glass-card outcome-card reveal">
-          <div class="outcome-stat">More Replies</div>
-          <p>Engage buyers who actually want to talk and have active intent.</p>
+        <div class="glass-card outcome-card reveal" data-delay="0">
+          <div class="outcome-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <h4>More Replies</h4><p>Engage buyers who have active intent and actually want to talk.</p>
         </div>
-        <div class="glass-card outcome-card reveal" style="transition-delay: 0.1s">
-          <div class="outcome-stat">More Meetings</div>
-          <p>Predictably fill your calendar week over week without the stress.</p>
+        <div class="glass-card outcome-card reveal" data-delay="100">
+          <div class="outcome-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <h4>More Meetings</h4><p>Predictably fill your calendar week over week without burnout.</p>
         </div>
-        <div class="glass-card outcome-card reveal" style="transition-delay: 0.2s">
-          <div class="outcome-stat">Consistent Flow</div>
-          <p>Turn on a steady, reliable stream of opportunities that scales with you.</p>
+        <div class="glass-card outcome-card reveal" data-delay="200">
+          <div class="outcome-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h4>Consistent Flow</h4><p>A reliable stream of qualified opportunities that scales as you grow.</p>
         </div>
-        <div class="glass-card outcome-card reveal" style="transition-delay: 0.3s">
-          <div class="outcome-stat">Time Saved</div>
-          <p>Reclaim 40+ hours a month by eliminating tedious, manual SDR work.</p>
+        <div class="glass-card outcome-card reveal" data-delay="300">
+          <div class="outcome-icon purple"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h4>Time Reclaimed</h4><p>Reclaim 40+ hours a month by eliminating tedious SDR busywork.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. Why Zoka Works Section -->
-  <section class="section alt-bg" id="why-zoka">
+  <!-- SERVICES SHOWCASE -->
+  <section class="section alt-bg" id="services">
     <div class="container">
-      <div class="why-split">
+      <div class="section-header reveal">
+        <span class="section-label">Services</span>
+        <h2 class="section-title">Freelancing &amp; <span class="gradient-text">software solutions</span> for every stage.</h2>
+        <p class="section-subtitle">Whether you need a polished website, a mobile app, or a full enterprise platform — we scope, design, build, and ship it for you.</p>
+      </div>
+      <div class="services-showcase">
+        <div class="showcase-card glass-card reveal" data-delay="0">
+          <div class="showcase-badge">Most Popular</div>
+          <div class="showcase-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <h3>Website &amp; Landing Pages</h3>
+          <p>High-converting, pixel-perfect websites optimised for speed, SEO, and sales.</p>
+          <div class="showcase-tech"><span>Next.js</span><span>React</span><span>Tailwind</span><span>WordPress</span></div>
+          <a href="#cta" class="showcase-link">Start a project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="showcase-card glass-card reveal" data-delay="100">
+          <div class="showcase-icon green"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <h3>Mobile Apps</h3>
+          <p>Cross-platform iOS &amp; Android apps with slick UX and seamless backend integration.</p>
+          <div class="showcase-tech"><span>React Native</span><span>Flutter</span></div>
+          <a href="#cta" class="showcase-link">Start a project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="showcase-card glass-card reveal" data-delay="200">
+          <div class="showcase-icon blue"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Custom Software</h3>
+          <p>Bespoke internal tools, dashboards, ERPs, CRMs — anything that makes your team more efficient.</p>
+          <div class="showcase-tech"><span>Node.js</span><span>Python</span><span>PostgreSQL</span></div>
+          <a href="#cta" class="showcase-link">Start a project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="showcase-card glass-card reveal" data-delay="300">
+          <div class="showcase-icon purple"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h3>SaaS Platforms</h3>
+          <p>Full-stack SaaS products with auth, billing, multi-tenancy — MVP-ready in weeks.</p>
+          <div class="showcase-tech"><span>Next.js</span><span>Stripe</span><span>Supabase</span></div>
+          <a href="#cta" class="showcase-link">Start a project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="showcase-card glass-card reveal" data-delay="400">
+          <div class="showcase-icon orange"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <h3>UI/UX Design</h3>
+          <p>User-centred design systems, Figma prototypes, and brand identities that convert.</p>
+          <div class="showcase-tech"><span>Figma</span><span>Design Systems</span></div>
+          <a href="#cta" class="showcase-link">Start a project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="showcase-card glass-card reveal" data-delay="500">
+          <div class="showcase-icon teal"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>AI Integrations</h3>
+          <p>Embed GPT, Claude, or custom ML models — chatbots, intelligent processing, and automation.</p>
+          <div class="showcase-tech"><span>OpenAI</span><span>Claude API</span><span>LangChain</span></div>
+          <a href="#cta" class="showcase-link">Start a project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ZOKA -->
+  <section class="section" id="why-zoka">
+    <div class="container">
+      <div class="why-layout">
         <div class="why-left reveal">
           <span class="section-label">Why Us</span>
           <h2 class="section-title">Built <span class="gradient-text">differently.</span></h2>
-          <p class="why-lead">We don't just give you a tool; we build and manage the entire infrastructure.</p>
+          <p class="why-lead">We don't just hand you a tool. We build and run the entire infrastructure — so you can focus on closing.</p>
+          <a href="#cta" class="btn btn-primary why-cta">Work With Us <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
         <div class="why-right">
-          <div class="why-item reveal">
-            <h3>Automation-First</h3>
-            <p>Set it and forget it. We handle the heavy lifting, scraping, tracking, and sending.</p>
-          </div>
-          <div class="why-item reveal" style="transition-delay: 0.1s">
-            <h3>Personalized Outreach (Not Spam)</h3>
-            <p>Hyper-relevant messaging that protects your brand reputation and domain health.</p>
-          </div>
-          <div class="why-item reveal" style="transition-delay: 0.2s">
-            <h3>Scalable System</h3>
-            <p>Grows effortlessly as your meeting targets increase, without breaking your workflow.</p>
-          </div>
-          <div class="why-item reveal" style="transition-delay: 0.3s">
-            <h3>An Engine, Not a Tool</h3>
-            <p>It's not just software; it's a fully managed pipeline infrastructure tailored to you.</p>
-          </div>
+          <div class="why-item reveal" data-delay="0"><div class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><h4>Automation-First</h4><p>Set it and forget it. We handle the heavy lifting — scraping, tracking, sending, and optimising.</p></div></div>
+          <div class="why-item reveal" data-delay="100"><div class="why-icon green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div><h4>Personalised, Not Spam</h4><p>Hyper-relevant messaging that protects your brand reputation and domain health.</p></div></div>
+          <div class="why-item reveal" data-delay="200"><div class="why-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><h4>Scales With You</h4><p>Grows effortlessly as your pipeline targets increase — no manual overhead.</p></div></div>
+          <div class="why-item reveal" data-delay="300"><div class="why-icon purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4>An Engine, Not a Tool</h4><p>Fully managed pipeline infrastructure — not just software, but a team that runs it for you.</p></div></div>
+          <div class="why-item reveal" data-delay="400"><div class="why-icon orange"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><h4>Transparent Reporting</h4><p>Live dashboards, weekly reports, and direct Slack access — you always know what's happening.</p></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Final CTA Section -->
+  <!-- TESTIMONIALS -->
+  <section class="section alt-bg" id="testimonials">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-label">Social Proof</span>
+        <h2 class="section-title">Don't take our word <span class="gradient-text">for it.</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="glass-card testimonial-card reveal" data-delay="0">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Zoka Works transformed our outbound completely. We went from 2 meetings a week to 14 in the first month."</p>
+          <div class="testi-author"><div class="testi-avatar">JM</div><div><strong>James Mitchell</strong><span>CEO, SaaSify</span></div></div>
+        </div>
+        <div class="glass-card testimonial-card reveal" data-delay="150">
+          <div class="testi-stars">★★★★★</div>
+          <p>"They built our entire SaaS platform in 5 weeks. Clean code, great design, and they handled everything — Stripe, auth, the whole stack."</p>
+          <div class="testi-author"><div class="testi-avatar green">SR</div><div><strong>Sarah Rahman</strong><span>Founder, CloudPivot</span></div></div>
+        </div>
+        <div class="glass-card testimonial-card reveal" data-delay="300">
+          <div class="testi-stars">★★★★★</div>
+          <p>"40% reply rate on cold email is unreal. Zoka delivered a custom CRM and outbound automation — both world-class."</p>
+          <div class="testi-author"><div class="testi-avatar blue">AL</div><div><strong>Alex Lee</strong><span>Head of Growth, NexaHQ</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="section cta-section" id="cta">
     <div class="container">
-      <div class="glass-card cta-conversion-card reveal text-center">
-        <h2 class="section-title">Ready to scale your <span class="gradient-text">pipeline?</span></h2>
-        <p class="section-subtitle">Let's discuss your outbound strategy. No aggressive sales pitches—just a clear look at how we can help.</p>
-        <div class="hero-buttons" style="margin-top: 40px;">
-          <a href="#" class="btn btn-primary">Book a Strategy Call</a>
-          <a href="https://meet.google.com" target="_blank" class="btn btn-secondary">Connect via Google Meet</a>
+      <div class="cta-card glass-card reveal">
+        <div class="cta-glow-1"></div>
+        <div class="cta-glow-2"></div>
+        <div class="cta-inner">
+          <span class="section-label">Get Started</span>
+          <h2 class="section-title">Ready to scale your <span class="gradient-text">pipeline?</span></h2>
+          <p class="section-subtitle">Let's discuss your outbound strategy or your next software project. No aggressive sales — just a clear look at how we can help.</p>
+          <div class="cta-buttons">
+            <a href="mailto:hello@zoka.works" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Book a Strategy Call
+            </a>
+            <a href="https://meet.google.com" target="_blank" rel="noopener" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.882v6.236a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              Connect via Google Meet
+            </a>
+          </div>
+          <p class="cta-note">Average response time: <strong>under 2 hours</strong></p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1);">
-      <div class="footer-copy" style="color: var(--text-muted); font-size: 0.9rem;">
-        &copy; 2026 Zoka Works. All rights reserved.
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="logo.png" alt="Zoka Works" class="nav-logo-img" />
+            <span class="logo-text">Zoka<span class="logo-accent">Works</span></span>
+          </a>
+          <p>AI-powered B2B lead generation and full-stack software development for scaling businesses.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h5>AI Leads</h5>
+            <a href="#leads">Lead Generation</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#results">Results</a>
+          </div>
+          <div class="footer-col">
+            <h5>Development</h5>
+            <a href="#services">Web Development</a>
+            <a href="#services">Mobile Apps</a>
+            <a href="#services">SaaS Platforms</a>
+            <a href="#services">AI Integrations</a>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <a href="#why-zoka">Why Us</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#cta">Contact</a>
+          </div>
+        </div>
       </div>
-      <div class="footer-links" style="display: flex; gap: 20px;">
-        <a href="#what-this-does" style="color: var(--text-muted); font-size: 0.9rem;">Product</a>
-        <a href="#cta" style="color: var(--text-muted); font-size: 0.9rem;">Book Call</a>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Zoka Works. All rights reserved.</span>
+        <span>Built with precision. Delivered with intent.</span>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Reveal animations on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    reveals.forEach(r => observer.observe(r));
-    
-    // Trigger initial reveals
-    setTimeout(() => {
-      document.querySelectorAll('.hero-content > *').forEach(el => el.style.opacity = '1');
-    }, 100);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
